@@ -5,6 +5,7 @@ async function performLogin() {
     var request = await fetch('http://localhost:3000/', {
         mode:'cors', 
         credentials: 'include',
+        method: "POST",
         body: JSON.stringify({
             email: email.value,
             password: password.value
