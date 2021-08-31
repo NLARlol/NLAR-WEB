@@ -12,21 +12,14 @@ function checkIfDisabled() {
     var button = document.getElementById("sucemabite");
     var text = document.getElementById("id").value;
 
-    if(button.outerHTML.endsWith("disabled=\"\">") && text.length == 18) {
-            button.outerHTML = button.outerHTML.replace("disabled=\"\"", "");
-        
-    } else if(button.outerHTML.endsWith("()\">") && text.length != 18) {
-        button.outerHTML = button.outerHTML.replace("()\"", "()\" disabled=\"\"")
-    } else {
-        console.log(button.outerHTML.endsWith("()\">")  && text.length != 18);
-        console.log(button.outerHTML);
-        console.log(text.length)
+    if(button.outerHTML.includes("disabled=\"\"") && text.length == 18) {
+      button.outerHTML = button.outerHTML.replace("disabled=\"\"", "");
+    } else if(!button.outerHTML.includes("disabled=\"\"") && text.length != 18) {
+         button.outerHTML = button.outerHTML.replace(">", "disabled=\"\">")
     }
 }
 
-function onSubmit(token) {
-  document.getElementById("demo-form").submit();
-}
+
 
 
 window.onresize = function() {
