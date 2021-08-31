@@ -7,6 +7,12 @@ function pedalo() {
         checkIfDisabled();
 }
 
+document.addEventListener("wheel", function(event){
+  if(document.activeElement.type === "number"){
+      document.activeElement.blur();
+  }
+});
+
 
 function checkIfDisabled() {
     var button = document.getElementById("sucemabite");
