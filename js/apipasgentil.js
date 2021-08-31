@@ -31,8 +31,7 @@ async function usersMeCheck() {
         method: "GET"
     });
 
-    const response = await request.json();
     const status = request.status;
 
-    if(status != 200) {return window.href = "https://nlar.netlify.app/login.html"} else return;
+    if(status != 200) {window.href = "https://nlar.netlify.app/login.html"} else return;
 }
