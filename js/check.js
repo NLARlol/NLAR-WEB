@@ -146,10 +146,16 @@ window.onload = async() => {
   var request = await fetch('http://localhost:3000/users/me', {
       mode:'cors', 
       credentials: 'include',
-      method: "GET"
+      method: "GET",
+      headers: {
+        authorization: localStorage.getItem("token")
+      }
   });
 
-  const response = request.json();
-
-  if(response.code != 200) {window.href = "https://nlar.netlify.app/login.html"} else return;
+  const response = await request.json();
+  console.log(response.code);
+  if(response.code != 200) 
+  {
+    window.href = "https://nlar.netlify.app/login.html"
+  } else return;
 }
