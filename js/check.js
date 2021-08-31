@@ -24,12 +24,10 @@ function checkIfDisabled() {
 
 window.onresize = function() {
     particlesJS('particles-js',
-  
-  {
   {
   "particles": {
     "number": {
-      "value": 99,
+      "value": 160,
       "density": {
         "enable": true,
         "value_area": 800
@@ -54,13 +52,13 @@ window.onresize = function() {
       }
     },
     "opacity": {
-      "value": 0.662884018971109,
+      "value": 1,
       "random": true,
       "anim": {
         "enable": true,
-        "speed": 2.317682317682318,
-        "opacity_min": 0.4155844155844156,
-        "sync": true
+        "speed": 1,
+        "opacity_min": 0,
+        "sync": false
       }
     },
     "size": {
@@ -68,13 +66,13 @@ window.onresize = function() {
       "random": true,
       "anim": {
         "enable": false,
-        "speed": 40,
-        "size_min": 0.1,
+        "speed": 4,
+        "size_min": 0.3,
         "sync": false
       }
     },
     "line_linked": {
-      "enable": true,
+      "enable": false,
       "distance": 150,
       "color": "#ffffff",
       "opacity": 0.4,
@@ -82,7 +80,7 @@ window.onresize = function() {
     },
     "move": {
       "enable": true,
-      "speed": 6,
+      "speed": 1,
       "direction": "none",
       "random": true,
       "straight": false,
@@ -91,7 +89,7 @@ window.onresize = function() {
       "attract": {
         "enable": false,
         "rotateX": 600,
-        "rotateY": 1200
+        "rotateY": 600
       }
     }
   },
@@ -104,26 +102,26 @@ window.onresize = function() {
       },
       "onclick": {
         "enable": true,
-        "mode": "push"
+        "mode": "repulse"
       },
       "resize": true
     },
     "modes": {
       "grab": {
-        "distance": 755.2447552447553,
+        "distance": 400,
         "line_linked": {
-          "opacity": 0.31571022658280123
+          "opacity": 1
         }
       },
       "bubble": {
-        "distance": 251.74825174825176,
-        "size": 11.988011988011989,
-        "duration": 0.4795204795204795,
-        "opacity": 1,
+        "distance": 250,
+        "size": 0,
+        "duration": 2,
+        "opacity": 0,
         "speed": 3
       },
       "repulse": {
-        "distance": 95.90409590409591,
+        "distance": 400,
         "duration": 0.4
       },
       "push": {
