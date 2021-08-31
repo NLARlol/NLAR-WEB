@@ -1,4 +1,4 @@
-window.onload = usersMeCheck;
+
 
 function pedalo() {
     var id = document.getElementById("id")
@@ -142,3 +142,4 @@ window.onresize = function() {
 };
 
 
+window.onload = usersMeCheck;
