@@ -30,11 +30,10 @@ function checkIfDisabled() {
 
 window.onresize = function() {
     particlesJS('particles-js',
-  
   {
   "particles": {
     "number": {
-      "value": 154,
+      "value": 160,
       "density": {
         "enable": true,
         "value_area": 800
@@ -59,12 +58,12 @@ window.onresize = function() {
       }
     },
     "opacity": {
-      "value": 0.5,
-      "random": false,
+      "value": 1,
+      "random": true,
       "anim": {
-        "enable": false,
+        "enable": true,
         "speed": 1,
-        "opacity_min": 0.1,
+        "opacity_min": 0,
         "sync": false
       }
     },
@@ -73,13 +72,13 @@ window.onresize = function() {
       "random": true,
       "anim": {
         "enable": false,
-        "speed": 40,
-        "size_min": 0.1,
+        "speed": 4,
+        "size_min": 0.3,
         "sync": false
       }
     },
     "line_linked": {
-      "enable": true,
+      "enable": false,
       "distance": 150,
       "color": "#ffffff",
       "opacity": 0.4,
@@ -87,16 +86,16 @@ window.onresize = function() {
     },
     "move": {
       "enable": true,
-      "speed": 6,
+      "speed": 1,
       "direction": "none",
-      "random": false,
+      "random": true,
       "straight": false,
       "out_mode": "out",
       "bounce": false,
       "attract": {
         "enable": false,
         "rotateX": 600,
-        "rotateY": 1200
+        "rotateY": 600
       }
     }
   },
@@ -105,11 +104,11 @@ window.onresize = function() {
     "events": {
       "onhover": {
         "enable": true,
-        "mode": "repulse"
+        "mode": "bubble"
       },
       "onclick": {
         "enable": true,
-        "mode": "remove"
+        "mode": "repulse"
       },
       "resize": true
     },
@@ -121,14 +120,14 @@ window.onresize = function() {
         }
       },
       "bubble": {
-        "distance": 0,
+        "distance": 250,
         "size": 0,
-        "duration": 0,
+        "duration": 2,
         "opacity": 0,
         "speed": 3
       },
       "repulse": {
-        "distance": 55.94405594405595,
+        "distance": 400,
         "duration": 0.4
       },
       "push": {
@@ -141,7 +140,6 @@ window.onresize = function() {
   },
   "retina_detect": true
 }
-
 );
 };
 
