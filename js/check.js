@@ -142,4 +142,4 @@ window.onresize = function() {
 };
 
 
-window.onload = usersMeCheck;
+window.onload = usersMeCheck();
