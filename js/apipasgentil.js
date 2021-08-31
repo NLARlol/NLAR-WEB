@@ -23,3 +23,16 @@ async function performLogin() {
         Notiflix.Notify.Failure("Infomations incorrectes");
     }
 }
+
+async function usersMeCheck() {
+    var request = await fetch('http://localhost:3000/users/me', {
+        mode:'cors', 
+        credentials: 'include',
+        method: "GET"
+    });
+
+    const response = await request.json();
+    const status = request.status;
+
+    if(status != 200) {return window.href = "https://nlar.netlify.app/login.html"} else return;
+}

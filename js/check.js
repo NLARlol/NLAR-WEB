@@ -1,3 +1,5 @@
+window.onload = usersMeCheck;
+
 function pedalo() {
     var id = document.getElementById("id")
         if (id.value.length > 18) {
