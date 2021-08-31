@@ -16,7 +16,7 @@ async function performLogin() {
     const status = request.status;
 
     if(status == 200) {
-        Notiflix.Notify.Success(`Vous êtes connecté, redirection dans quelques instants..\nBienvenue ${response.data.username}`);
+        Notiflix.Notify.Success(`Vous êtes connecté, redirection dans quelques instants...`);
         localStorage.setItem("token", response.data.token);
         window.location.href = "https://nlar.netlify.app/index.html";
     } else {
@@ -24,14 +24,3 @@ async function performLogin() {
     }
 }
 
-async function usersMeCheck() {
-    var request = await fetch('http://localhost:3000/users/me', {
-        mode:'cors', 
-        credentials: 'include',
-        method: "GET"
-    });
-
-    const status = request.status;
-
-    if(status != 200) {window.href = "https://nlar.netlify.app/login.html"} else return;
-}

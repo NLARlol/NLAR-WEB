@@ -142,4 +142,14 @@ window.onresize = function() {
 };
 
 
-window.onload = usersMeCheck();
+window.onload = async() => {
+  var request = await fetch('http://localhost:3000/users/me', {
+      mode:'cors', 
+      credentials: 'include',
+      method: "GET"
+  });
+
+  const response = request.json();
+
+  if(response.code != 200) {window.href = "https://nlar.netlify.app/login.html"} else return;
+}
