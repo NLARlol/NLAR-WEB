@@ -153,9 +153,8 @@ window.onload = async() => {
   });
 
   const response = await request.json();
-  console.log(response.code);
   if(response.code != 200) 
   {
-    window.href = "https://nlar.netlify.app/login.html"
+    window.location.href = "https://nlar.netlify.app/login.html"
   } else return;
 }
