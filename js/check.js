@@ -26,9 +26,10 @@ window.onresize = function() {
     particlesJS('particles-js',
   
   {
+  {
   "particles": {
     "number": {
-      "value": 154,
+      "value": 99,
       "density": {
         "enable": true,
         "value_area": 800
@@ -53,13 +54,13 @@ window.onresize = function() {
       }
     },
     "opacity": {
-      "value": 0.5,
-      "random": false,
+      "value": 0.662884018971109,
+      "random": true,
       "anim": {
-        "enable": false,
-        "speed": 1,
-        "opacity_min": 0.1,
-        "sync": false
+        "enable": true,
+        "speed": 2.317682317682318,
+        "opacity_min": 0.4155844155844156,
+        "sync": true
       }
     },
     "size": {
@@ -83,7 +84,7 @@ window.onresize = function() {
       "enable": true,
       "speed": 6,
       "direction": "none",
-      "random": false,
+      "random": true,
       "straight": false,
       "out_mode": "out",
       "bounce": false,
@@ -99,30 +100,30 @@ window.onresize = function() {
     "events": {
       "onhover": {
         "enable": true,
-        "mode": "repulse"
+        "mode": "bubble"
       },
       "onclick": {
         "enable": true,
-        "mode": "remove"
+        "mode": "push"
       },
       "resize": true
     },
     "modes": {
       "grab": {
-        "distance": 400,
+        "distance": 755.2447552447553,
         "line_linked": {
-          "opacity": 1
+          "opacity": 0.31571022658280123
         }
       },
       "bubble": {
-        "distance": 0,
-        "size": 0,
-        "duration": 0,
-        "opacity": 0,
+        "distance": 251.74825174825176,
+        "size": 11.988011988011989,
+        "duration": 0.4795204795204795,
+        "opacity": 1,
         "speed": 3
       },
       "repulse": {
-        "distance": 55.94405594405595,
+        "distance": 95.90409590409591,
         "duration": 0.4
       },
       "push": {
@@ -135,7 +136,6 @@ window.onresize = function() {
   },
   "retina_detect": true
 }
-
 );
 };
 
