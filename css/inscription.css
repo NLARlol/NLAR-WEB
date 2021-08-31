@@ -20,7 +20,7 @@ body{
     z-index: -10;
   }
 /* Bordered form */
-form {
+div.form {
     width:100%;
     padding: 30px;
     border: 1px solid #212121;
@@ -37,16 +37,19 @@ form {
 }
 
 /* Full-width inputs */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], input[type=number] {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
+    background-color: #F1F1F1;
 }
 
 /* Set a style for all buttons */
+
+
 input[type=submit] {
     background-color: #0258e9;
     color: white;
@@ -60,6 +63,22 @@ input[type=submit]:hover {
     background-color: #0042b3;
     color:  white;
     border: 1px solid #0042b3;
+}
+
+input[type=submit]:disabled {
+    background-color: #313131;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: default;
+    width: 100%;
+}
+
+input[type=submit]:hover:disabled {
+    background-color: #313131;
+    color:  white;
+
 }
 
 label, p {

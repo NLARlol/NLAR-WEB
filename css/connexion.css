@@ -23,7 +23,6 @@ body{
 form {
     width:100%;
     padding: 30px;
-    
     border: 1px solid #212121;
     background: #212121;
     border-radius: 5%;
@@ -31,8 +30,8 @@ form {
 }
 #container h1{
     width: 38%;
-    padding-left: 10%;
     color:#ededed;
+    padding-left: 10%;
     margin: 0 auto;
     padding-bottom: 10px;
 }
@@ -64,9 +63,8 @@ input[type=submit]:hover {
 }
 
 label, p {
-    color: #ccc0c0; 
- }
- 
+   color: #ccc0c0; 
+}
 
 
 
@@ -86,7 +84,6 @@ label, p {
     #container{
         width:290px;
         margin-top:10%;
-
     }
   }
 
