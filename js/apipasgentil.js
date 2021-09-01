@@ -39,14 +39,13 @@ async function checksus() {
     const response = await request.json();
 
     if(response.code == 200) {
-        fetch("https://nlar.netlify.app/usercss.txt").then(res => res.text()).then(css => {
             fetch("https://nlar.netlify.app/userbody.txt").then(res => res.text()).then(htmlpage => {
-                document.body.innerHTML = "<style>" + css + "</style>" + htmlpage;
+                document.body.innerHTML = htmlpage.replace("LIDDELAWLIETSALEFILSDEPUTE", response.data.id).replace("USERNAMEDEGROSPDDEMERDE", `${response.data.username}#${response.data.discriminator}`).replace("NIGGEREDLOLXDGROSFILSDEPUTEDEMEDE", `${(response.data.blacklisted.isBlacklisted ? "Yes" : "No")}`).replace("LADATEOULEMECAFAITSONCOMPTEETAPERDUTOUTEVIESOCIALEXD", getDate(new Date(deconstruct(response.data.id).timestamp)));
                 fetch("https://nlar.netlify.app/userhead.txt").then(res => res.text()).then(head => {
             document.head.innerHTML = head;
                 });
             });
-        });
+  
 
     } else {
         Notiflix.Notify.Failure("Failed");
