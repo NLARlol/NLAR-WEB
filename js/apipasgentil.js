@@ -30,7 +30,7 @@ async function checksus() {
     var request = await fetch('http://localhost:3000/check/' + sus.value, {
         mode:'cors', 
         credentials: 'include',
-        method: "POST",
+        method: "GET",
         headers: {
             Authorization: token || localStorage.getItem("token")
         }
@@ -40,6 +40,82 @@ async function checksus() {
     const status = request.status;
 
     if(response.code == 200) {
+        addStyle(`*{
+            margin: 0%;
+            padding: 0%;
+            font-family: 'Ubuntu', sans-serif
+        }
+        body{
+            background: #313131;
+        }
+        
+        #container{
+            width:100px;
+            position: absolute;
+            margin-left: 25%;
+            padding-right: 10%;
+        }
+        /* Bordered form */
+        div.form {
+            width: 200%;
+            padding: 15px;
+            border: 3px solid #212121;
+            background: #212121;
+            border-radius: 5%;
+            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        }
+        
+        #container h1{
+            width: 38%;
+            color:#ededed;
+            padding-left: 23%;
+            margin: 0 auto;
+            margin-bottom: 5%;
+        }
+        
+        .sltcv {
+            color: #ccc0c0;
+            font-size: 150%;
+            margin-left: 30%;
+        }
+        
+        .logo {
+            margin-top: 10%;
+            height: 155px;
+            width: 35%;
+            border-radius: 50%;
+            position: absolute;
+         
+        }
+        
+        #particles-js {
+            height: 99%;
+            width: 100%;
+            position: absolute;
+            z-index: -10;
+        } 
+          
+        img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+        }
+        
+        input[type=submit] {
+            background-color: #0258e9;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            margin-top: 2%;
+            cursor: pointer;
+            width: 100%;
+        }
+        input[type=submit]:hover {
+            background-color: #0042b3;
+            color:  white;
+            border: 1px solid #0042b3;
+        }`);
         var div = document.getElementById("samousa");
         div.innerHTML = "";
         const logo = document.createElement("p")
@@ -56,7 +132,7 @@ async function checksus() {
         div.append(usn);
         const blacklisted = `<ul class="sltcv">Blacklisted: ${(response.data.blacklisted.isBlacklisted == true ? "Yes" : "No")}</ul><br>`
         div.append(blacklisted);
-        var dat = fct.deconstruct(user.id).timestamp
+        var dat = deconstruct(user.id).timestamp
         const created = document.createElement("ul");
         created.innerHTML = `<ul class="sltcv">Created: ${getDate(Date.parse(dat))}</ul><br>`
         div.append(created);
