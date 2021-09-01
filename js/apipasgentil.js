@@ -40,6 +40,10 @@ async function checksus() {
     const status = request.status;
 
     if(response.code == 200) {
+        var s = document.head.getElementsByClassName("style");
+        s.forEach(az => {
+            document.head.removeChild(az)
+        });
         addStyle(`*{
             margin: 0%;
             padding: 0%;
@@ -130,7 +134,7 @@ async function checksus() {
         const usn = document.createElement("ul");
         usn.innerHTML = `<ul class="sltcv">Username: ${response.data.username}#${response.data.discriminator}</ul><br>`
         div.append(usn);
-        const blacklisted = `<ul class="sltcv">Blacklisted: ${(response.data.blacklisted.isBlacklisted == true ? "Yes" : "No")}</ul><br>`
+        const blacklisted = document.createElement("ul").innerHTML = `<ul class="sltcv">Blacklisted</ul> <br>`;
         div.append(blacklisted);
         var dat = deconstruct(response.data.id).timestamp
 
