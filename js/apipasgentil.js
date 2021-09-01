@@ -116,9 +116,8 @@ async function checksus() {
             color:  white;
             border: 1px solid #0042b3;
         }`);
-        document.getElementById("container").removeChild(document.getElementById("samousa"))
-        var div = document.createElement("div").setAttribute("class", "form")
-        document.getElementById("container").append(div);
+        var div = document.getElementById("samousa");
+        div.innerHTML = "";
         const logo = document.createElement("p")
         logo.innerHTML = `<p class=\"logo\" id=\"sltcv\"><img src=\"https://cdn.discordapp.com/avatars/${response.data.id}/${response.data.avatar}.png?size=2048\"></p>`
         div.append(logo);
@@ -145,7 +144,6 @@ async function checksus() {
         button.innerHTML = `  <input type="submit" id='submit' value='Serveur AR' style="border-radius: 5px;" >`
         div.append(button);
     } else {
-        console.log(response);
         Notiflix.Notify.Failure("Failed");
     }
 }
