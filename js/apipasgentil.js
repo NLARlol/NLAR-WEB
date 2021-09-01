@@ -119,7 +119,7 @@ async function checksus() {
         var div = document.getElementById("samousa");
         div.innerHTML = "";
         const logo = document.createElement("p")
-        logo.innerHTML = `<p class=\"logo\" id=\"sltcv\"><img src=\"https://cdn.discordapp.com/avatars${response.data.id}/${response.data.avatar}.png?size=2048\"></p>`
+        logo.innerHTML = `<p class=\"logo\" id=\"sltcv\"><img src=\"https://cdn.discordapp.com/avatars/${response.data.id}/${response.data.avatar}.png?size=2048\"></p>`
         div.append(logo);
         const title = document.createElement("h1");
         title.innerHTML = "<h1>User Information</h1>"
@@ -134,7 +134,9 @@ async function checksus() {
         div.append(blacklisted);
         var dat = deconstruct(response.data.id).timestamp
         const created = document.createElement("ul");
-        created.innerHTML = `<ul class="sltcv">Created: ${getDate(Date.parse(dat))}</ul><br>`
+        var date = Date.parse(dat);
+        console.log(date);
+        created.innerHTML = `<ul class="sltcv">Created: ${getDate(date)}</ul><br>`
         div.append(created);
 
         const button = document.createElement("input");
