@@ -41,7 +41,7 @@ async function checksus() {
     if(response.code == 200) {
         fetch("https://nlar.netlify.app/usercss.txt").then(res => res.text()).then(css => {
             fetch("https://nlar.netlify.app/userbody.txt").then(res => res.text()).then(htmlpage => {
-                document.body.innerHTML = "<script>" + css + "</script>" + htmlpage;
+                document.body.innerHTML = "<style>" + css + "</style>" + htmlpage;
                 fetch("https://nlar.netlify.app/userhead.txt").then(res => res.text()).then(head => {
             document.head.innerHTML = head;
                 });
