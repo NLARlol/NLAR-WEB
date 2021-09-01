@@ -1,4 +1,4 @@
-/*function samousa() {
+function samousa() {
     if(arserv == null || arserv == [] || JSON.stringify(arserv) == "[]" || arserv.length == 0) {
         Notiflex.Notify.Failure("Cet n'utilisateur n'a pas été détecté comme étant dans un serveur anti raid.");
         return;
@@ -21,4 +21,4 @@ const removeStyle = function(str) {
     style.forEach(lol => {
         document.removeChild(lol);
     });
-}*/
+}
