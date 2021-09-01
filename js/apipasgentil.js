@@ -17,10 +17,120 @@ async function performLogin() {
 
     if(status == 200) {
         Notiflix.Notify.Success(`Vous êtes connecté, redirection dans quelques instants...`);
+        token = response.data.token;
         localStorage.setItem("token", response.data.token);
         window.location.href = "https://nlar.netlify.app/index.html";
     } else {
         Notiflix.Notify.Failure("Infomations incorrectes");
     }
+}
+
+async function checksus() {
+    var sus = document.getElementById("sucemabite");
+    var request = await fetch('http://localhost:3000/check/' + sus.value, {
+        mode:'cors', 
+        credentials: 'include',
+        method: "POST",
+        headers: {
+            Authorization: token || localStorage.getItem("token")
+        }
+    });
+
+    const response = await request.json();
+    const status = request.status;
+
+    if(response.code == 200) {
+        var div = document.getElementById("samousa");
+        div.innerHTML = "";
+        const logo = document.createElement("p")
+        logo.innerHTML = `<p class=\"logo\" id=\"sltcv\"><img src=\"https://cdn.discordapp.com/avatars${response.data.id}/${response.data.avatar}.png?size=2048\"></p>`
+        div.append(logo);
+        const title = document.createElement("h1");
+        title.innerHTML = "<h1>User Information</h1>"
+        div.append(title);
+        const id = document.createElement("ul");
+        id.innerHTML = `<ul class="sltcv">User ID: ${response.data.id}</ul><br>`
+        div.append(id);
+        const usn = document.createElement("ul");
+        usn.innerHTML = `<ul class="sltcv">Username: ${response.data.username}#${response.data.discriminator}</ul><br>`
+        div.append(usn);
+        const blacklisted = `<ul class="sltcv">Blacklisted: ${(response.data.blacklisted.isBlacklisted == true ? "Yes" : "No")}</ul><br>`
+        div.append(blacklisted);
+        var dat = fct.deconstruct(user.id).timestamp
+        const created = document.createElement("ul");
+        created.innerHTML = `<ul class="sltcv">Created: ${getDate(Date.parse(dat))}</ul><br>`
+        div.append(created);
+
+        const button = document.createElement("input");
+        button.innerHTML = `  <input type="submit" id='submit' value='Serveur AR' style="border-radius: 5px;" >`
+        div.append(button);
+    } else {
+        Notiflix.Notify.Failure("Failed");
+    }
+}
+
+function getDate(date) {
+      year = date.getFullYear(),
+      month = (date.getMonth() + 1).toString(),
+      formatedMonth = (month.length === 1) ? ("0" + month) : month,
+      day = date.getDate().toString(),
+      formatedDay = (day.length === 1) ? ("0" + day) : day,
+      hour = date.getHours().toString(),
+      formatedHour = (hour.length === 1) ? ("0" + hour) : hour,
+      minute = date.getMinutes().toString(),
+      formatedMinute = (minute.length === 1) ? ("0" + minute) : minute,
+      second = date.getSeconds().toString(),
+      formatedSecond = (second.length === 1) ? ("0" + second) : second;
+    return formatedDay + "-" + formatedMonth + "-" + year + " " + formatedHour + ':' + formatedMinute + ':' + formatedSecond;
+  };
+
+function idToBinary(num) {
+	let bin = '';
+	let high = parseInt(num.slice(0, -10)) || 0;
+	let low = parseInt(num.slice(-10));
+	while (low > 0 || high > 0) {
+		bin = String(low & 1) + bin;
+		low = Math.floor(low / 2);
+		if (high > 0) {
+			low += 5000000000 * (high % 2);
+			high = Math.floor(high / 2);
+		}
+	}
+	return bin;
+}
+
+const deconstruct = function(snowflake) {
+	const BINARY = idToBinary(snowflake).toString(2).padStart(64, '0');
+	const res = {
+		timestamp: parseInt(BINARY.substring(0, 42), 2) + 1420070400000,
+		workerID: parseInt(BINARY.substring(42, 47), 2),
+		processID: parseInt(BINARY.substring(47, 52), 2),
+		increment: parseInt(BINARY.substring(52, 64), 2),
+		binary: BINARY
+	};
+	Object.defineProperty(res, 'date', {
+		get: function get() {
+			return new Date(this.timestamp);
+		},
+		enumerable: true,
+	});
+	return res;
+}
+
+/**
+ * Utility function to add replaceable CSS.
+ * @param {string} styleString
+ */
+const addStyle = (() => {
+    const style = document.createElement('style');
+    document.head.append(style);
+    return (styleString) => style.textContent = styleString;
+  })();
+
+const removeStyle = function(str) {
+    const style = document.getElementsByName("style");
+    style.forEach(lol => {
+        document.removeChild(lol);
+    });
 }
 
