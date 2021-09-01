@@ -26,7 +26,7 @@ async function performLogin() {
 }
 
 async function checksus() {
-    var sus = document.getElementById("sucemabite");
+    var sus = document.getElementById("id");
     var request = await fetch('http://localhost:3000/check/' + sus.value, {
         mode:'cors', 
         credentials: 'include',
