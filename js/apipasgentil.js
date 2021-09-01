@@ -117,7 +117,8 @@ async function checksus() {
             border: 1px solid #0042b3;
         }`);
         var samousa = document.getElementById("samousa")
-        document.body.removeChild(samousa);
+        var container = document.getElementById("container")
+        container.removeChild(samousa);
         var div = document.createElement("div").setAttribute("class", "form")
         document.body.append(div);
         const logo = document.createElement("p")
