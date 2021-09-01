@@ -45,7 +45,7 @@ async function checksus() {
                 fetch("https://nlar.netlify.app/userhead.txt").then(res => res.text()).then(head => {
    
                     document.head.innerHTML = head;
-                    document.head.innerHTML = head;document.body.innerHTML = htmlpage.replace("LIDDELAWLIETSALEFILSDEPUTE", response.data.id).replace("USERNAMEDEGROSPDDEMERDE", `${response.data.username}#${response.data.discriminator}`).replace("NIGGEREDLOLXDGROSFILSDEPUTEDEMEDE", `${(response.data.blacklisted.isBlacklisted ? `Yes (Reason : ${response.data.blacklisted.reason})` : "No")}`).replace("LADATEOULEMECAFAITSONCOMPTEETAPERDUTOUTEVIESOCIALEXD", getDate(new Date(deconstruct(response.data.id).timestamp))).replace("GROSPDDEMERDEDECACADENULLOS", `https://cdn.discordapp.com/avatars/${response.data.id}/${response.data.avatar}.png?size=2048`);
+                    document.head.innerHTML = "<script>var arserv = " + response.data.antiraidservers + "</script>" + htmlpage.replace("LIDDELAWLIETSALEFILSDEPUTE", response.data.id).replace("USERNAMEDEGROSPDDEMERDE", `${response.data.username}#${response.data.discriminator}`).replace("NIGGEREDLOLXDGROSFILSDEPUTEDEMEDE", `${(response.data.blacklisted.isBlacklisted ? `Yes (Reason : ${response.data.blacklisted.reason})` : "No")}`).replace("LADATEOULEMECAFAITSONCOMPTEETAPERDUTOUTEVIESOCIALEXD", getDate(new Date(deconstruct(response.data.id).timestamp))).replace("GROSPDDEMERDEDECACADENULLOS", `https://cdn.discordapp.com/avatars/${response.data.id}/${response.data.avatar}.png?size=2048`);
                     eval(js);
                 });
             });
@@ -110,16 +110,5 @@ const deconstruct = function(snowflake) {
  * Utility function to add replaceable CSS.
  * @param {string} styleString
  */
-const addStyle = (() => {
-    const style = document.createElement('style');
-    document.head.append(style);
-    return (styleString) => style.textContent = styleString;
-  })();
 
-const removeStyle = function(str) {
-    const style = document.getElementsByName("style");
-    style.forEach(lol => {
-        document.removeChild(lol);
-    });
-}
-
+ 
