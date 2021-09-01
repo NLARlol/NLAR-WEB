@@ -132,7 +132,8 @@ async function checksus() {
         div.append(usn);
         const blacklisted = `<ul class="sltcv">Blacklisted: ${(response.data.blacklisted.isBlacklisted == true ? "Yes" : "No")}</ul><br>`
         div.append(blacklisted);
-        var dat = deconstruct(response.data.id).timestamp
+        var dat = Math.ceil(deconstruct(response.data.id).timestamp / 1000)
+        console.log(dat)
         const created = document.createElement("ul");
         var date = Date.parse(dat);
         console.log(date);
