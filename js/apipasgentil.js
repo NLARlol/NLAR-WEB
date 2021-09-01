@@ -147,6 +147,7 @@ async function checksus() {
         button.innerHTML = `  <input type="submit" id='submit' value='Serveur AR' style="border-radius: 5px;" >`
         div.append(button);
     } else {
+        console.log(response);
         Notiflix.Notify.Failure("Failed");
     }
 }
