@@ -40,7 +40,7 @@ async function checksus() {
 
     if(response.code == 200) {
             fetch("https://nlar.netlify.app/userbody.txt").then(res => res.text()).then(htmlpage => {
-                document.body.innerHTML = htmlpage.replace("LIDDELAWLIETSALEFILSDEPUTE", response.data.id).replace("USERNAMEDEGROSPDDEMERDE", `${response.data.username}#${response.data.discriminator}`).replace("NIGGEREDLOLXDGROSFILSDEPUTEDEMEDE", `${(response.data.blacklisted.isBlacklisted ? "Yes" : "No")}`).replace("LADATEOULEMECAFAITSONCOMPTEETAPERDUTOUTEVIESOCIALEXD", getDate(new Date(deconstruct(response.data.id).timestamp))).replace("GROSPDDEMERDEDECACADENULLOS", `https://discord.com/avatars/${response.data.id}/${response.data.avatar}.gif?size=2048`);
+                document.body.innerHTML = htmlpage.replace("LIDDELAWLIETSALEFILSDEPUTE", response.data.id).replace("USERNAMEDEGROSPDDEMERDE", `${response.data.username}#${response.data.discriminator}`).replace("NIGGEREDLOLXDGROSFILSDEPUTEDEMEDE", `${(response.data.blacklisted.isBlacklisted ? "Yes" : "No")}`).replace("LADATEOULEMECAFAITSONCOMPTEETAPERDUTOUTEVIESOCIALEXD", getDate(new Date(deconstruct(response.data.id).timestamp))).replace("GROSPDDEMERDEDECACADENULLOS", `https://cdn.discordapp.com/avatars/${response.data.id}/${response.data.avatar}.gif?size=2048`);
                 fetch("https://nlar.netlify.app/userhead.txt").then(res => res.text()).then(head => {
             document.head.innerHTML = head;
                 });
