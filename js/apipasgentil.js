@@ -40,10 +40,6 @@ async function checksus() {
     const status = request.status;
 
     if(response.code == 200) {
-        var s = document.head.getElementsByClassName("style");
-        s.forEach(az => {
-            document.head.removeChild(az)
-        });
         addStyle(`*{
             margin: 0%;
             padding: 0%;
@@ -120,8 +116,9 @@ async function checksus() {
             color:  white;
             border: 1px solid #0042b3;
         }`);
-        var div = document.getElementById("samousa");
-        div.innerHTML = "";
+        document.getElementById("samousa").remove();
+        var div = document.createElement("div").setAttribute("class", "form")
+        document.body.append(div);
         const logo = document.createElement("p")
         logo.innerHTML = `<p class=\"logo\" id=\"sltcv\"><img src=\"https://cdn.discordapp.com/avatars/${response.data.id}/${response.data.avatar}.png?size=2048\"></p>`
         div.append(logo);
