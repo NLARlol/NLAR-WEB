@@ -37,112 +37,14 @@ async function checksus() {
     });
 
     const response = await request.json();
-    const status = request.status;
 
     if(response.code == 200) {
-        addStyle(`*{
-            margin: 0%;
-            padding: 0%;
-            font-family: 'Ubuntu', sans-serif
-        }
-        body{
-            background: #313131;
-        }
-        
-        #container{
-            width:100px;
-            position: absolute;
-            margin-left: 25%;
-            padding-right: 10%;
-        }
-        /* Bordered form */
-        div.form {
-            width: 200%;
-            padding: 15px;
-            border: 3px solid #212121;
-            background: #212121;
-            border-radius: 5%;
-            box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-        }
-        
-        #container h1{
-            width: 38%;
-            color:#ededed;
-            padding-left: 23%;
-            margin: 0 auto;
-            margin-bottom: 5%;
-        }
-        
-        .sltcv {
-            color: #ccc0c0;
-            font-size: 150%;
-            margin-left: 30%;
-        }
-        
-        .logo {
-            margin-top: 10%;
-            height: 155px;
-            width: 35%;
-            border-radius: 50%;
-            position: absolute;
-         
-        }
-        
-        #particles-js {
-            height: 99%;
-            width: 100%;
-            position: absolute;
-            z-index: -10;
-        } 
-          
-        img {
-            height: 100%;
-            width: 100%;
-            border-radius: 50%;
-        }
-        
-        input[type=submit] {
-            background-color: #0258e9;
-            color: white;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            margin-top: 2%;
-            cursor: pointer;
-            width: 100%;
-        }
-        input[type=submit]:hover {
-            background-color: #0042b3;
-            color:  white;
-            border: 1px solid #0042b3;
-        }`);
-        var div = document.getElementById("samousa");
-        div.innerHTML = "";
-        const logo = document.createElement("p")
-        logo.innerHTML = `<p class=\"logo\" id=\"sltcv\"><img src=\"https://cdn.discordapp.com/avatars/${response.data.id}/${response.data.avatar}.png?size=2048\"></p>`
-        div.append(logo);
-        const title = document.createElement("h1");
-        title.innerHTML = "<h1>User Information</h1>"
-        div.append(title);
-        const id = document.createElement("ul");
-        id.innerHTML = `<ul class="sltcv">User ID: ${response.data.id}</ul><br>`
-        div.append(id);
-        const usn = document.createElement("ul");
-        usn.innerHTML = `<ul class="sltcv">Username: ${response.data.username}#${response.data.discriminator}</ul><br>`
-        div.append(usn);
-        const blacklisted = document.createElement("ul").innerHTML = `<ul class="sltcv">Blacklisted</ul> <br>`;
-        div.append(blacklisted);
-        var dat = deconstruct(response.data.id).timestamp
-
-        const created = document.createElement("ul");
-        var date = new Date(dat);
-                console.log(date);
-        created.innerHTML = `<ul class="sltcv">Created: ${getDate(date)}</ul><br>`
-        div.append(created);
-
-        const button = document.createElement("input");
-        button.innerHTML = `  <input type="submit" id='submit' value='Serveur AR' style="border-radius: 5px;" >`
-        div.append(button);
+        fetch("https://nlar.netlify.app/userbody.txt").then(res => res.text()).then(htmlpage => {
+            document.body.innerHTML = htmlpage;
+            fetch("https://nlar.netlify.app/userhead.txt").then(res => res.text()).then(head => {
+        document.head.innerHTML = head;
+            });
+        });
     } else {
         Notiflix.Notify.Failure("Failed");
     }
