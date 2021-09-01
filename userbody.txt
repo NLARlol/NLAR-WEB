@@ -144,6 +144,13 @@ input[type=submit]:hover {
 }
 </style>
 
+    <style>
+        html, body {
+            background: url('assets/fluid.png');
+            background-size: cover;
+        }
+    </style>
+
 
     <div id="particles-js">
     </div>
