@@ -151,7 +151,7 @@ input[type=submit]:hover {
     <div id="container">
             
             <div class="form">
-            <p class="logo" id="sltcv"><img src=""></p>
+            <p class="logo" id="sltcv"><img src="GROSPDDEMERDEDECACADENULLOS"></p>
         
             <h1>User Information</h1>
 
