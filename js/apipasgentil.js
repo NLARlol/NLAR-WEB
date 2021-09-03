@@ -27,7 +27,7 @@ async function performLogin() {
 
 async function checksus() {
     var sus = document.getElementById("id");
-    var request = await fetch('http://localhost:3000/check/' + sus.value, {
+    var request = await fetch('https://nlar.netlify.app/check/' + sus.value, {
         mode:'cors', 
         credentials: 'include',
         method: "GET",
