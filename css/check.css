@@ -5,6 +5,7 @@
 }
 body{
     background: #242424;
+    filter:blur(2px);
 }
 #container{
     width:400px;

@@ -3,9 +3,10 @@ function samousa() {
         Notiflex.Notify.Failure("Cet n'utilisateur n'a pas été détecté comme étant dans un serveur anti raid.");
         return;
     } else {
-        addStyle(`.body {
-	fitler:blur(4px);
-	}`)
+        var all = document.getElementsByTagName("*").map(zgeg => zgeg.tagName);
+        new Set(all).forEach(zgeg => {
+            addStyle("." + zgeg + "{filter: blur(4px)}")            
+        });
     }
 }
 
