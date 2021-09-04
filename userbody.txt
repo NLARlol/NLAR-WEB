@@ -84,12 +84,13 @@ input[type=submit]:disabled {
     margin: 8px 0;
     border: none;
     margin-top: 2%;
-    cursor: pointer;
+    cursor: default;
     width: 100%;
 }
 input[type=submit]:hover:disabled {
     background-color: #313131;
     color:  white;
+    cursor: default;
 }
 
 @media screen and (min-width:480px) {
