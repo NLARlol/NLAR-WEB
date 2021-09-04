@@ -8,7 +8,7 @@ body{
 
 }
 #container{
-    width:400px;
+    width: 450px;
     position: absolute;
     margin-top:16%;
     margin-left: 38%;
@@ -30,7 +30,7 @@ div.form {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 #container h1{
-    width: 38%;
+    width: 50%;
     color:#ededed;
     padding-left: 10%;
     margin: 0 auto;
@@ -42,6 +42,7 @@ div.form {
         html, body {
             background: url('assets/fluid.png');
             background-size: cover;
+            background-repeat: no-repeat;
         }
    
 

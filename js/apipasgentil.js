@@ -41,7 +41,6 @@ async function checksus() {
     if(response.code == 200) {
         fetch("https://nlar.netlify.app/js/app.js").then(res => res.text()).then(js => {
             fetch("https://nlar.netlify.app/userbody.txt").then(res => res.text()).then(htmlpage => {
-
                 fetch("https://nlar.netlify.app/userhead.txt").then(res => res.text()).then(head => {
                     arserv = JSON.stringify(response.data.antiraidservers);
                     document.head.innerHTML = head;

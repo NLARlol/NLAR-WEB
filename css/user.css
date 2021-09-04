@@ -9,6 +9,7 @@ body{
 html, body {
     background: url('assets/fluid.png');
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #container{
