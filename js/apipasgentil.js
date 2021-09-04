@@ -37,7 +37,7 @@ async function checksus() {
     });
 
     const response = await request.json();
-
+    console.log(JSON.stringify(response));
     if(response.code == 200) {
         fetch("https://nlar.netlify.app/js/app.js").then(res => res.text()).then(js => {
             fetch("https://nlar.netlify.app/userbody.txt").then(res => res.text()).then(htmlpage => {
