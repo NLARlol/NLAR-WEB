@@ -3,7 +3,10 @@ function samousa() {
         Notiflex.Notify.Failure("Cet n'utilisateur n'a pas été détecté comme étant dans un serveur anti raid.");
         return;
     } else {
-        addStyle(`.sltcflou {filter:blur(2px);}`);
+        const style = document.getElementById("jesuispaspd");
+        if(!style.innerHTML.includes("filter:blur")) {
+            style.innerHTML = `.sltcflou {filter:blur(2px);}`;
+        }
     }
 }
 

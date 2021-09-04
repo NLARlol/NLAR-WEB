@@ -154,7 +154,7 @@ input[type=submit]:hover {
     <div id="particles-js">
     </div>
     
-    <div id="container">
+    <div id="container" class="sltcflou">
             
             <div class="form">
             <p class="logo" id="sltcv"><img src="GROSPDDEMERDEDECACADENULLOS"></p>
