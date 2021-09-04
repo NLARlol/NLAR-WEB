@@ -169,7 +169,7 @@ input[type=submit]:hover {
             <br>
             <ul class="sltcv">Created: LADATEOULEMECAFAITSONCOMPTEETAPERDUTOUTEVIESOCIALEXD</ul>
 
-            <input type="submit" id='submit' value='Serveur AR' onclick="samousa()" style="border-radius: 5px;" >
+            <input type="submit" id='submitlol' value='Serveur AR' onclick="samousa()" style="border-radius: 5px;" >
             </div>
 
 

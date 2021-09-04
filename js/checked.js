@@ -5,8 +5,11 @@ function samousa() {
     } else {
         const style = document.getElementById("jesuispaspd");
         if(!style.innerHTML.includes("filter:blur")) {
-            style.innerHTML = `.sltcflou {filter:blur(2px);}`;
+            style.innerHTML = `.sltcflou {filter:blur(4px);}`;
+            document.getElementById("submitlol").disabled = true;
         }
+
+
     }
 }
 
