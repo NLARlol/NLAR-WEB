@@ -1,4 +1,4 @@
-
+var arserv = [];
 
 function pedalo() {
     var id = document.getElementById("id")
