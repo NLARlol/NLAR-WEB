@@ -76,10 +76,20 @@ input[type=submit] {
     cursor: pointer;
     width: 100%;
 }
-input[type=submit]:hover {
-    background-color: #0042b3;
+
+input[type=submit]:disabled {
+      background-color: #313131;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    margin-top: 2%;
+    cursor: pointer;
+    width: 100%;
+}
+input[type=submit]:hover:disabled {
+    background-color: #313131;
     color:  white;
-    border: 1px solid #0042b3;
 }
 
 @media screen and (min-width:480px) {
