@@ -6,6 +6,10 @@
 body{
     background: #313131;
 }
+html, body {
+    background: url('assets/fluid.png');
+    background-size: cover;
+}
 
 #container{
     width:100px;

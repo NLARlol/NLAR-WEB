@@ -5,7 +5,7 @@
 }
 body{
     background: #242424;
-    filter:blur(2px);
+
 }
 #container{
     width:400px;
@@ -36,6 +36,14 @@ div.form {
     margin: 0 auto;
     padding-bottom: 10px;
 }
+
+
+    
+        html, body {
+            background: url('assets/fluid.png');
+            background-size: cover;
+        }
+   
 
 /* Full-width inputs */
 input[type=text], input[type=password], input[type=number] {

@@ -3,21 +3,16 @@ function samousa() {
         Notiflex.Notify.Failure("Cet n'utilisateur n'a pas été détecté comme étant dans un serveur anti raid.");
         return;
     } else {
-        addStyle(`.body {
-	fitler:blur(4px);
-	}`)
+        addStyle(`.sltcflou {filter:blur(2px);}`);
     }
 }
 
-const addStyle = (() => {
-    const style = document.createElement('style');
-    document.head.append(style);
-    return (styleString) => style.textContent = styleString;
-  })();
+const addStyle = function zgeg(text) {
+	const style = document.getElementById("jesuispaspd");
+	style.innerHTML += text;
+}
   
-const removeStyle = function(str) {
-    const style = document.getElementsByName("style");
-    style.forEach(lol => {
-        document.removeChild(lol);
-    });
+const removeStyle = function() {
+	const style = document.getElementById("jesuispaspd");
+	style.innerHTML = "";
 }
