@@ -180,7 +180,4 @@ input[type=submit]:hover {
     </div>
     
     
-    <script src="js/particles.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/checked.js"></script>
-    <script src="js/notiflix-2.7.0.min.js"></script>
+
