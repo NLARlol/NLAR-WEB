@@ -1,160 +1,224 @@
-var arserv = [];
 
-function pedalo() {
-    var id = document.getElementById("id")
-        if (id.value.length > 18) {
-            id.value = id.value.slice(0,18); 
+
+$("#id")[0].addEventListener("input", (inp) => {
+ 
+    console.log(inp)
+    if(validateSnowflake(inp.target.value, DISCORD_EPOCH)) {
+        if(document.getElementsByTagName("input").length != 2) {
+            var input = document.createElement("input");
+            input.type = "submit";
+            input.id = "submit";
+            input.value = "Check";
+            input.onclick = submit;
+            $("#form")[0].appendChild(input);
         }
+        
+    } else {
+        if($("#submit")[0] != null) {
+            $("#submit")[0].remove();
+        } 
+    }
 
-        checkIfDisabled();
+
+    var element =$("#id")[0];
+    if(element.value.length > 18) {
+        element.value = element.value.slice(0, 18);
+    }
+} );
+
+var userid;
+var pp;
+var creation;
+var blacklist;
+var ar;
+var atext;
+var pp2;
+var servers;
+var username;
+
+
+async function submit() {
+    var id = $("#id")[0].value;
+
+    if(!validateSnowflake(id, DISCORD_EPOCH)) {
+        return alert("Utilisateur introuvable");
+    } else {
+        const req = await fetch("http://localhost:3000/check/" + id + "?forceguilds=true", {mode: "cors", headers: {authorization: window.localStorage.getItem("token")}});
+        const res = await req.json();
+        switch(res.code) {
+            case 404:
+                alert("Utilisateur introuvable");
+                break;
+            case 200:
+                const req2 = await fetch("http://127.0.0.1:5500/checked.html");
+                var text = await req2.text();
+                username = res.data.username;
+                servers = res.data.antiraidservers;
+                document.getElementsByTagName("html")[0].innerHTML = text;
+                document.title = `Checked user ${res.data.username}#${res.data.discriminator}`
+                $("#img")[0].src = `https://cdn.discordapp.com/avatars/${res.data.id}/${res.data.avatar}`;
+                document.getElementById("userid").innerText = `User ID : ${id}`;
+                $("#avatarlink")[0].href = `https://cdn.discordapp.com/avatars/${res.data.id}/${res.data.avatar}`;
+                var bldetails = document.createElement("a");
+                bldetails.innerText = "détails";
+
+                document.getElementById("blacklist").innerText = typeof(res.data.blacklisted) == "boolean" ? "Blacklist : non" : `Blacklist : oui, `;
+                if(typeof(res.data.blacklisted) != "boolean") {
+                    document.getElementById("blacklist").appendChild(bldetails)
+                    document.getElementById("blacklist").addEventListener("click", () => {
+                        var bl = res.data.blacklisted;
+                        if(bl == false) return;
+                        var form = document.getElementsByClassName("form")[0];
+                    
+                        form.innerHTML = "";
+                        var text = document.createElement("h1");
+                        text.innerText = `Blacklist Info`
+                        form.appendChild(text);
+                    
+                        form.appendChild(pp);
+                    
+                        var sltcv = document.createElement("ul");
+                        sltcv.className = "checked";
+                        sltcv.innerText = `Blacklist par : ${bl.blacklistedby}`
+                        var sltcv2 = document.createElement("ul");
+                        sltcv2.className = "checked";
+                        sltcv2.innerText = `Blacklist le : ${getSemiDate(new Date(bl.timestamp))}`;
+                        var sltcv3 = document.createElement("ul");
+                        sltcv3.className = "checked";
+                        sltcv3.innerText = `Raison : ${bl.reason}`;
+                        form.appendChild(sltcv);
+                        form.appendChild(document.createElement("br"));
+                        form.appendChild(sltcv2);
+                        form.appendChild(document.createElement("br"));
+                        form.appendChild(sltcv3);
+                        form.appendChild(document.createElement("br"));
+                        var inputsos = document.createElement("input");
+                        inputsos.className = "sauce";
+                        inputsos.type = "submit";
+                        inputsos.value = "Retourner a la première page"
+                        inputsos.onclick = retour;
+                        document.getElementsByClassName("form")[0].appendChild(inputsos)
+                    });
+                }
+                var serversbrowse = document.createElement("a");
+                serversbrowse.innerText = "détails";
+                serversbrowse.id = "zgegid";
+                
+                $("#serversar")[0].innerText = (res.data.antiraidservers.length == 0 ? "Serveurs AR : 0 serveur détecté" : `Serveurs AR : ${res.data.antiraidservers.length} ${res.data.antiraidservers.length == 1 ? "détecté" : "détectés"}, `);
+                if(res.data.antiraidservers.length != 0) {
+                    document.getElementById("serversar").appendChild(serversbrowse)
+                    document.getElementById("zgegid").addEventListener("click", () => {
+                        document.getElementsByClassName("form")[0].innerHTML = "";
+                        var textlol = document.createElement("h2");
+                        textlol.innerText = `Serveurs AR de ${username}`
+                        textlol.className = "title";
+                        document.getElementsByClassName("form")[0].appendChild(textlol);
+                        
+                        servers.forEach(serv => {
+                            var zgeg = document.createElement("ul");
+                            zgeg.className = "serv";
+                            zgeg.innerText = `${serv.name} (${serv.id})`
+              
+                            document.getElementsByClassName("form")[0].appendChild(zgeg)
+                 
+                        });
+
+                        var inputsos = document.createElement("input");
+                        inputsos.className = "sauce";
+                        inputsos.type = "submit";
+                        inputsos.value = "Retourner a la première page"
+                        inputsos.onclick = retour;
+                        document.getElementsByClassName("form")[0].appendChild(inputsos)
+                    });
+                }
+                document.getElementById("creationdate").innerText = `Date de création : ${getSemiDate(convertSnowflakeToDate(res.data.id))}`
+              
+
+                userid = document.getElementById("userid");
+                pp = document.getElementById("img");
+                creation = document.getElementById("creationdate");
+                blacklist = document.getElementById("blacklist");
+                ar = document.getElementById("serversar");
+                pp2 = document.getElementById("zgegpp");
+                atext = document.getElementById("zztrext");
+  
+                break;
+            case 429:
+                alert("Too many requests..");
+                break;
+            case 401:
+                window.location.href = "http://127.0.0.1:5500/login.html";
+                break;
+            }
+    } 
 }
 
-
-
-
-function checkIfDisabled() {
-    var button = document.getElementById("sucemabite");
-    var text = document.getElementById("id").value;
-
-    if(button.outerHTML.includes("disabled=\"\"") && text.length == 18) {
-      button.outerHTML = button.outerHTML.replace("disabled=\"\"", "");
-    } else if(!button.outerHTML.includes("disabled=\"\"") && text.length != 18) {
-         button.outerHTML = button.outerHTML.replace(">", "disabled=\"\">")
-    }
+function getSemiDate(date) {
+    var month = String(date.getMonth());
+    month = month.length == 1 ? "0" + month : month;
+    var day = String(date.getDate());
+    day = day.length == 1 ? "0" + day : day;
+    var year = date.getFullYear();
+    return `${day}/${month}/${year}`;
 }
-
-
-
-
-window.onresize = function() {
-    particlesJS('particles-js',
-  {
-  "particles": {
-    "number": {
-      "value": 160,
-      "density": {
-        "enable": true,
-        "value_area": 800
-      }
-    },
-    "color": {
-      "value": "#ffffff"
-    },
-    "shape": {
-      "type": "circle",
-      "stroke": {
-        "width": 0,
-        "color": "#000000"
-      },
-      "polygon": {
-        "nb_sides": 5
-      },
-      "image": {
-        "src": "img/github.svg",
-        "width": 100,
-        "height": 100
-      }
-    },
-    "opacity": {
-      "value": 1,
-      "random": true,
-      "anim": {
-        "enable": true,
-        "speed": 1,
-        "opacity_min": 0,
-        "sync": false
-      }
-    },
-    "size": {
-      "value": 3,
-      "random": true,
-      "anim": {
-        "enable": false,
-        "speed": 4,
-        "size_min": 0.3,
-        "sync": false
-      }
-    },
-    "line_linked": {
-      "enable": false,
-      "distance": 150,
-      "color": "#ffffff",
-      "opacity": 0.4,
-      "width": 1
-    },
-    "move": {
-      "enable": true,
-      "speed": 1,
-      "direction": "none",
-      "random": true,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
-      "attract": {
-        "enable": false,
-        "rotateX": 600,
-        "rotateY": 600
-      }
-    }
-  },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": {
-        "enable": true,
-        "mode": "bubble"
-      },
-      "onclick": {
-        "enable": true,
-        "mode": "repulse"
-      },
-      "resize": true
-    },
-    "modes": {
-      "grab": {
-        "distance": 400,
-        "line_linked": {
-          "opacity": 1
-        }
-      },
-      "bubble": {
-        "distance": 250,
-        "size": 0,
-        "duration": 2,
-        "opacity": 0,
-        "speed": 3
-      },
-      "repulse": {
-        "distance": 400,
-        "duration": 0.4
-      },
-      "push": {
-        "particles_nb": 4
-      },
-      "remove": {
-        "particles_nb": 2
-      }
-    }
-  },
-  "retina_detect": true
-}
-);
-};
-
 
 window.onload = async() => {
-  var request = await fetch('http://localhost:3000/users/me', {
-      mode:'cors', 
-      credentials: 'include',
-      method: "GET",
-      headers: {
-        authorization: localStorage.getItem("token")
-      }
-  });
+    document.getElementById("id").value = "";
+    const req = await fetch("http://localhost:3000/users/me", {mode: "cors", headers: {authorization: window.localStorage.getItem("token")}});
+    var response = await req.json();
+    if(response.code == 401) {
+        window.location.href = "http://127.0.0.1:5500/login.html";
+    } else if(response.code == 429) {
+        window.location.href = "http://google.fr";
+    }
 
-  const response = await request.json();
-  if(response.code != 200) 
-  {
-    window.location.href = "https://nlar.netlify.app/login.html"
-  } else return;
 }
+
+
+//https://github.com/vegeta897/snow-stamp/blob/main/src/convert.js
+function convertSnowflakeToDate(snowflake, epoch = DISCORD_EPOCH) {
+	return new Date(snowflake / 4194304 + epoch)
+}
+
+const DISCORD_EPOCH = 1420070400000
+
+function validateSnowflake(snowflake, epoch) {
+    if(String(snowflake).length < 17) {
+        return false;
+    }
+	if (!Number.isInteger(+snowflake)) {
+        return false;
+	}
+	if (snowflake < 4194304) {
+        return false;
+	}
+	const timestamp = convertSnowflakeToDate(snowflake, epoch)
+	if (isNaN(timestamp.getTime())) {
+		return false;
+	}
+	return true;
+}
+
+
+
+
+function retour() {
+    var form = document.getElementsByClassName("form")[0];
+
+    form.innerHTML = "";
+    form.appendChild(atext);
+
+    form.appendChild(pp);
+
+    form.appendChild(userid);
+    form.appendChild(document.createElement("br"));
+    form.appendChild(pp2);
+    form.appendChild(document.createElement("br"));
+    form.appendChild(creation);
+    form.appendChild(document.createElement("br"));
+    form.appendChild(blacklist);
+    form.appendChild(document.createElement("br"));
+    form.appendChild(ar);
+}
+
+

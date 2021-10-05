@@ -1,0 +1,91 @@
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,.form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+li{list-style:none}
+
+
+*{
+	padding: 0%;
+	margin: 0%;
+	font-family: "RobotoDraft", "Roboto", sans-serif;
+}
+
+
+
+body {
+    background-image: radial-gradient(circle, #020230, #01042d, #00062a, #000827, #010a23, #020a21, #02091f, #03091d, #03071c, #03051b, #020319, #020118);
+}
+.container {
+	margin-left: 35%;
+	margin-top:	8%;
+	width: 27%;
+	background-color: rgb(27, 25, 25);
+	padding: 3%;
+	border-radius: 5%;
+
+}
+
+label {
+	font-size: 120%;
+}
+
+.form {
+	width: 100%;
+	color: rgb(127, 146, 197);
+}
+
+.form h1 {
+	font-size: 170%;
+	margin-left: 33%;
+	margin-bottom: 5%;
+}
+
+input[type="text"], input[type="password"] {
+	width: 88%;
+	margin-top: 2%;
+	margin-bottom: 5% ;
+	border: none;
+	padding: 4% 5%;
+	background-color: #282829;
+	color: rgb(127, 146, 197);
+}
+:focus {
+	color: rgb(127, 146, 197);
+}
+
+
+input[type="submit"] {
+	width: 98%;
+	margin-top: 2%;
+	margin-bottom: 5% ;
+	border: none;
+	padding: 4% 5%;
+	color:  rgb(127, 146, 197);
+	background-color: #282829;
+}
+
+::placeholder {
+	color: rgb(127, 146, 197);
+	font-size: 120%;
+}
+
+a {
+	text-decoration: none;
+	color: rgb(85, 102, 146);
+	font-size: 100%;
+}
+
+p{
+	font-size: 100%;
+	color: rgb(127, 146, 197);
+}

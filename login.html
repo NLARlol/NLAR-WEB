@@ -1,39 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/connexion.css" media="screen" type="text/css" />
-    <link rel="stylesheet" href="css/notiflix-2.7.0.min.css" type="text/css" />
-    <title>Connexion</title>
-</head>
-    <body>
-        <div id="particles-js">
-        </div>
+<!DOCTYPE html> 
+<html lang="en" >
+   <head>
+      <meta charset="UTF-8">
+      <title>NLAR</title>
+      <link rel="stylesheet" href="css/login.css">
+      <link rel="stylesheet" href="css/queries.css">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
 
-    <div id="container">
-            
-        <div class="form">
-            <h1>Connexion</h1>
-                
-            <label><b>E-mail</b></label>
-            <input type="text" placeholder="Entrer votre e-mail" name="email" id="emaillol">
+      <div class="container">
+            <div class="form">
+               <h1>Connexion</h1>
 
-            <label><b>Mot de passe</b></label>
-            <input type="password" placeholder="Entrer le mot de passe" name="password" id="passwd">
+               <label><b>E-mail</b></label>
+                <input type="text" id="email" placeholder="Adresse email" />
+               <label><b>Mot de passe</b></label>
+                <input type="password" id="psd" placeholder="Mot de passe" />
+                <input type="submit" value="Se connecter" onclick="submit()">
+               <p>Vous avez pas de compte?<a href="register.html"> Inscrivez vous ici.</a></p>
+            </div>
+         </div>
+      </div>
 
-            <input type="submit" id='submit' value='Se connecter' onclick="performLogin()" >
-
-            <p>Vous n'avez pas de compte ? <a href="./register.html"  style="color:#afafaf">Inscrivez vous ici</a>.</p>
-        </div>
-
-    
-    
-    </div>
-    <script src="js/particles.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/apipasgentil.js"></script>
-    <script src="js/notiflix-2.7.0.min.js"></script>
-    </body>
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+      <script src="js/login.js"></script>
+   </body>
 </html>
