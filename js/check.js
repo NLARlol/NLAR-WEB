@@ -43,7 +43,7 @@ async function submit() {
     if(!validateSnowflake(id, DISCORD_EPOCH)) {
         return alert("Utilisateur introuvable");
     } else {
-        const req = await fetch("https://sltcv.herokuapp.com/check/" + id + "?forceguilds=true", {mode: "cors", headers: {authorization: window.localStorage.getItem("token")}});
+        const req = await fetch("http://sltcv.herokuapp.com/check/" + id + "?forceguilds=true", {mode: "cors", headers: {authorization: window.localStorage.getItem("token")}});
         const res = await req.json();
         switch(res.code) {
             case 404:
@@ -56,9 +56,9 @@ async function submit() {
                 servers = res.data.antiraidservers;
                 document.getElementsByTagName("html")[0].innerHTML = text;
                 document.title = `Checked user ${res.data.username}#${res.data.discriminator}`
-                $("#img")[0].src = `https://cdn.discordapp.com/avatars/${res.data.id}/${res.data.avatar}`;
+                $("#img")[0].src = `http://cdn.discordapp.com/avatars/${res.data.id}/${res.data.avatar}`;
                 document.getElementById("userid").innerText = `User ID : ${id}`;
-                $("#avatarlink")[0].href = `https://cdn.discordapp.com/avatars/${res.data.id}/${res.data.avatar}`;
+                $("#avatarlink")[0].href = `http://cdn.discordapp.com/avatars/${res.data.id}/${res.data.avatar}`;
                 var bldetails = document.createElement("a");
                 bldetails.innerText = "détails";
 
@@ -164,7 +164,7 @@ function getSemiDate(date) {
 
 window.onload = async() => {
     document.getElementById("id").value = "";
-    const req = await fetch("https://sltcv.herokuapp.com/users/me", {mode: "cors", headers: {authorization: window.localStorage.getItem("token")}});
+    const req = await fetch("http://sltcv.herokuapp.com/users/me", {mode: "cors", headers: {authorization: window.localStorage.getItem("token")}});
     var response = await req.json();
     if(response.code == 401) {
         window.location.href = "http://nlarxd.netlify.app/login.html";
@@ -175,7 +175,7 @@ window.onload = async() => {
 }
 
 
-//https://github.com/vegeta897/snow-stamp/blob/main/src/convert.js
+//http://github.com/vegeta897/snow-stamp/blob/main/src/convert.js
 function convertSnowflakeToDate(snowflake, epoch = DISCORD_EPOCH) {
 	return new Date(snowflake / 4194304 + epoch)
 }
