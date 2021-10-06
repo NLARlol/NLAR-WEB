@@ -11,7 +11,7 @@ async function submit() {
   
     switch(req.status) {
         case 200:
-            alert("Vous êtes connectés, bienvenue..");
+            alert("Vous êtes enregistés, bienvenue..");
             var response = await req.json();
             window.localStorage.setItem("token", response.data.token);
             window.location.href = "https://nlarxd.netlify.app/check.html";
