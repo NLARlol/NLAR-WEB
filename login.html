@@ -1,30 +1,24 @@
-<!DOCTYPE html> 
-<html lang="en" >
+<!doctype html>
+<html lang="en">
    <head>
-      <meta charset="UTF-8">
-      <title>NLAR</title>
-      <link rel="stylesheet" href="css/login.css">
-      <link rel="stylesheet" href="css/queries.css">
-      <meta https-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <title>NLAR Login</title>
+      <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="assets/dist/css/log.css" rel="stylesheet">
    </head>
-<body>
+   <body class="text-center bg-dark">
+      <main class="form-log">
+         <form>
+            <h1 class="h3 mb-3 fw-normal text-white">NLAR | Login</h1>
+               <input type="email" class="form-control mb-2" id="email" placeholder="Adresse Email">
+               <input type="password" class="form-control" id="psd" placeholder="Mot de passe">
+            <button class="w-100 btn btn-primary mt-2" id="submit" type='button'>Se connecter</button>
+            <p class="text-white mt-3" style="font-size: 92%;">Vous n'avez pas de compte ? <a href="register.html">Inscrivez vous</a></p>
+         </form>
+      </main>
 
-      <div class="container">
-            <div class="form">
-               <h1>Connexion</h1>
-
-               <label><b>E-mail</b></label>
-                <input type="text" id="email" placeholder="Adresse email" />
-               <label><b>Mot de passe</b></label>
-                <input type="password" id="psd" placeholder="Mot de passe" />
-                <input type="submit" value="Se connecter" onclick="submit()">
-               <p>Vous avez pas de compte?<a href="register.html"> Inscrivez vous ici.</a></p>
-            </div>
-         </div>
-      </div>
-
-   
-      <script src="js/login.js"></script>
-   </body>
+      <script src="assets/dist/js/login.js"></script>
+   </body> 
 </html>
