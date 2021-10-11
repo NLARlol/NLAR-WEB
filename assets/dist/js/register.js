@@ -8,25 +8,44 @@ document.getElementById("submit").addEventListener("click", async() => {
     if(!usn || usn == "") return alert("Invalid username")
 
  const req = await fetch("https://sltcv.herokuapp.com/register", {body: JSON.stringify({email: eml, password: psd, username: usn}), method:"POST", mode:"cors", headers: {"Content-Type": "application/json"}});
-  
-    switch(req.status) {
-        case 200:
-            alert("Vous êtes inscrit, bienvenue..");
-            var response = await req.json();
-            window.localStorage.setItem("token", response.data.token);
-            window.location.pathname = "index.html";
-            break;
-        case 429:
-            alert("Veuillez réessayer plus tard.");
-            break;
-        case 404:
-            alert("Votre compte n'existe pas.");
-            break;
-        case 403:
-            alert("Votre email ou votre mot de passe est invalide.");
-            break;
-        case 500:
-            alert("Internal server error");
-            break;
-    } 
+    
+    const res = await req.json();
+    var form = document.getElementsByTagName("form")[0];
+    var text = document.getElementById("zgeg")
+    if(res.code == 200) {
+        var alertdiv = document.createElement("div");
+        alertdiv.role = "alert";
+        alertdiv.className = "alert alert-success alert-dismissible fade show";
+        alertdiv.innerText = "Merci de vous êtes inscrit sur NLAR, vous allez être redirigés vers la page d'accueil";
+
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "btn-close";
+        btn.ariaLabel = "Close"
+        alertdiv.appendChild(btn);
+        form.insertBefore(alertdiv, text);
+        setTimeout(() => {
+            return window.location.pathname = "index.html";
+        }, 1500);
+        /*            <div class="alert alert-success alert-dismissible fade show" role="alert">
+               You should check in on some of those fields below.
+               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+             </div>*/
+    } else {
+        var alertdiv = document.createElement("div");
+        alertdiv.role = "alert";
+        alertdiv.className = "alert alert-danger alert-dismissible fade show";
+        alertdiv.innerText = `${res.data.message}`;
+
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "btn-close";
+        btn.ariaLabel = "Close"
+        alertdiv.appendChild(btn);
+        form.insertBefore(alertdiv, text);
+        setTimeout(() => {
+            return window.location.pathname = "index.html";
+        }, 1500);
+    }
+    
 });
