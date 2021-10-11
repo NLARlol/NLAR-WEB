@@ -2,23 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta https-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/check.css">
-    <link rel="stylesheet" href="css/queries.css">
-    <title>Check User</title>
-</head>
-<body>
-    <div class="container">
-        <div class="form" id="form">
-           <h1>Check User</h1>
+    <title>Document</title>
 
-           <label><b>User ID</b></label>
-            <input type="text" id="id" placeholder="880070112458199110" />
-   
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/dist/css/check.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <main class="form-log">
+                    <form>
+                        <h1 class="h3 mb-3 fw-normal text-white">NLAR | Check</h1>
+                           <input type="text" class="form-control" id="memberid" placeholder="852625527796662322">
+                        <button class="w-100 btn btn-primary mt-3" id="submit" type='button' disabled>Check</button>
+                     </form>
+                </main>
+            </div>
         </div>
-     </div>
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <script src="js/check.js"></script>
+
+    </div>
+
+    <script src="assets/dist/js/check.js"></script>
 </body>
 </html>

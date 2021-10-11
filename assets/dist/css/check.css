@@ -1,0 +1,54 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+}
+
+.pp {
+  border-radius: 50%;
+  background-color: #1e2125;
+}
+
+
+.form-log {
+  width: 30%;
+  padding: 2% 3%;
+  margin: auto;
+  background-color: #1f2327;
+  border-radius: 4%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+img {
+  border-radius: 50%;
+  display:block;
+  margin: auto;
+}
+a:not([href]) {  
+  color: #135ece!important;
+}
+
+a {
+  color: #135ece;
+  text-decoration: none;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+  .form-log {
+    min-width: 40%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .form-log {
+    min-width: 80%;
+    max-width: 100%;
+  }
+}
