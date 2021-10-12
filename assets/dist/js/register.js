@@ -24,6 +24,7 @@ document.getElementById("submit").addEventListener("click", async() => {
         btn.ariaLabel = "Close"
         alertdiv.appendChild(btn);
         form.insertBefore(alertdiv, text);
+        localStorage.setItem("token", res.data.token);
         setTimeout(() => {
             return window.location.pathname = "index.html";
         }, 1500);
