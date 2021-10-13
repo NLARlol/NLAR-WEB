@@ -3,7 +3,7 @@ window.onload = async() => {
     var col = document.getElementsByClassName("col")[0];
     let params = (new URL(document.location)).searchParams;
     if(params.get("code")) {
-        const ar = await fetch("https://sltcv.herokuapp.com/linker", {
+        const ar = await fetch(`https://sltcv.herokuapp.com/linker?code=${params.get("code")}`, {
             mode: "cors",
             method: "POST",
             headers: {
