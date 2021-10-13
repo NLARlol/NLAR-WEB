@@ -27,14 +27,14 @@ window.onload = async() => {
         } else {
             var alertdiv = document.createElement("div");
             alertdiv.role = "alert";
-            alertdiv.className = "alert alert-danger alert-dismissible fade show";
+            alertdiv.className = "alert alert-success alert-dismissible fade show";
             alertdiv.innerText = `Le profil a été mis à jour !`;
             var btn = document.createElement("button");
             btn.type = "button";
             btn.className = "btn-close";
             btn.ariaLabel = "Close"
             alertdiv.appendChild(btn);
-            return col.appendChild(alertdiv);
+            col.appendChild(alertdiv);
         }
 
 
