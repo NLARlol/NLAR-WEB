@@ -17,7 +17,7 @@ window.onload = async() => {
             var alertdiv = document.createElement("div");
             alertdiv.role = "alert";
             alertdiv.className = "alert alert-danger alert-dismissible fade show";
-            alertdiv.innerText = `${res.data.message}`;
+            alertdiv.innerText = `${aq.data.message}`;
             var btn = document.createElement("button");
             btn.type = "button";
             btn.className = "btn-close";
