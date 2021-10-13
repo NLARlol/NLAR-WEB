@@ -28,10 +28,6 @@ document.getElementById("submit").addEventListener("click", async() => {
         setTimeout(() => {
             return window.location.pathname = "index.html";
         }, 1500);
-        /*            <div class="alert alert-success alert-dismissible fade show" role="alert">
-               You should check in on some of those fields below.
-               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-             </div>*/
     } else {
         var alertdiv = document.createElement("div");
         alertdiv.role = "alert";
