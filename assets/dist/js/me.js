@@ -1,4 +1,5 @@
 window.onload = async() => {
+    if(!localStorage.getItem("token")) return window.location.pathname = "login.html";
     var col = document.getElementsByClassName("col")[0];
     let params = (new URL(document.location)).searchParams;
     if(params.get("code")) {
@@ -38,7 +39,7 @@ window.onload = async() => {
 
 
     } 
-    if(!localStorage.getItem("token")) return window.location.pathname = "login.html";
+
     const req = await fetch(`https://sltcv.herokuapp.com/users/me`, {
         headers: {
             Authorization: localStorage.getItem("token")
@@ -130,6 +131,6 @@ const newButton = (topush, classname, text) => {
     newelement.className = classname;
     newelement.innerText = text;
     topush.appendChild(newelement);
-    newelement.onclick = () => {window.location.href = "https://discord.com/api/oauth2/authorize?client_id=881516796153311273&redirect_uri=https%3A%2F%2Fnlar.xyz%2Flinker.html&response_type=code&scope=identify"}
+    newelement.onclick = () => {window.location.href = "https://discord.com/api/oauth2/authorize?client_id=881516796153311273&redirect_uri=https%3A%2F%2Fnlar.xyz%2Fme.html&response_type=code&scope=identify"}
     return newelement;
 }
