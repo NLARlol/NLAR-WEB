@@ -15,24 +15,27 @@ window.onload = async() => {
 
         if(aq.code != 200) {
             var alertdiv = document.createElement("div");
-            alertdiv.role = "alert";
+    
+            alertdiv.setAttribute("role", 'alert');
             alertdiv.className = "alert alert-danger alert-dismissible fade show";
             alertdiv.innerText = `${aq.data.message}`;
             var btn = document.createElement("button");
             btn.type = "button";
             btn.className = "btn-close";
-            btn.ariaLabel = "Close"
+            btn.ariaLabel = "close"
+            btn.setAttribute("data-bs-dismiss", "alert");
             alertdiv.appendChild(btn);
             return col.appendChild(alertdiv);
         } else {
             var alertdiv = document.createElement("div");
-            alertdiv.role = "alert";
+            alertdiv.setAttribute("role", 'alert');
             alertdiv.className = "alert alert-success alert-dismissible fade show";
             alertdiv.innerText = `Le profil a été mis à jour !`;
             var btn = document.createElement("button");
             btn.type = "button";
             btn.className = "btn-close";
-            btn.ariaLabel = "Close"
+            btn.ariaLabel = "close"
+            btn.setAttribute("data-bs-dismiss", "alert");
             alertdiv.appendChild(btn);
             col.appendChild(alertdiv);
         }
