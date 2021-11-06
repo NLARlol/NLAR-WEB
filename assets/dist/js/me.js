@@ -65,6 +65,7 @@ window.onload = async() => {
         }, 1700);
     } else {
         var ul = newUl(newForm(document.getElementsByClassName("col")[0], "form-log zgeg"), "list-group");
+        console.log(res.data)
         if(res.data.dsc) {
             newLi(ul, "Discord", ` ${res.data.dsc}`, "list-group-item text-center");
         }

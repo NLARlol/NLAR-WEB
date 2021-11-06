@@ -30,7 +30,7 @@
         <a class="nav-link" href="adminindex.html">Admin</a>
         <a class="nav-link" href="check.html">Check</a>
         <a class="nav-link" href="report.html">Report</a>
-        <a class="nav-link" href="login.html">Se connecter</a>
+        <a class="nav-link" id="user" href="login.html">Se connecter</a>
 
       </nav>
 
@@ -52,6 +52,31 @@
 </div>
 
 
+    <script>
+zizi();
+async function zizi() {
+  if(localStorage.getItem("token")) {
+        const req = await fetch(`https://sltcv.herokuapp.com/users/me`, {
+        headers: {
+            Authorization: localStorage.getItem("token")
+        }
+        });
+
+        if(req.status == 200) {
+          var body = await req.json();
+          ChangeTextToAccount(body.data);
+        }
+      }
+}
     
+
+      function ChangeTextToAccount(user) {
+        var btn = document.getElementById("user")
+        btn.innerText = user.username;
+
+
+        btn.setAttribute("href", "me.html")
+      }
+    </script>
   </body>
 </html>

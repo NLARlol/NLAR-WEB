@@ -1,0 +1,19 @@
+html,
+body {
+  height: 100%;
+}
+
+.col {
+  margin-bottom: 50%;
+}
+
+.card {
+  padding: 3% 6%;
+}
+
+img {
+  border-radius: 10%;
+  display: block;
+  aspect-ratio: 1 / 1;
+}
+
